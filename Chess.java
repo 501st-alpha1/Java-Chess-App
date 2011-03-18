@@ -5,6 +5,8 @@ import javax.swing.*;
 
 public class Chess extends JApplet {
   Checkerboard p1;
+  
+  //Set up frame or applet.
   public static void main(String[] args) {
     JFrame frame = new JFrame();
     Chess applet = new Chess();
@@ -28,6 +30,7 @@ public class Chess extends JApplet {
   }
   
   class MoveListener implements MouseListener{
+    //Watch for mouse clicks.
     public void mouseClicked(MouseEvent e) {
       int x = e.getX();
       int y = e.getY();
