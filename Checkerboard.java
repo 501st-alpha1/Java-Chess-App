@@ -11,6 +11,7 @@ class Checkerboard extends JPanel {
   private Team currentTeam = white;
   
   public Checkerboard() {
+    //Initialize piece positions.
     Game.board[0][0] = black.rookEast;
     Game.board[1][0] = black.knightEast;
     Game.board[2][0] = black.bishopEast;
@@ -46,6 +47,7 @@ class Checkerboard extends JPanel {
     Game.board[7][6] = white.pawn8;
   }
   
+  //If the mouse clicked on a square, process it.
   public void processClick(int xPoint, int yPoint) {
     int x = xPoint / this.side + 1;
     int y = yPoint / this.side + 1;
@@ -158,10 +160,12 @@ class Checkerboard extends JPanel {
       currentX = x;
       currentY = y;
     }
+    //There must be *some* better way to do that!
     
     repaint();
   }
-  
+
+  //Make sure the move is valid, and execute. This need improvement too.
   public void processMove(Piece p, int x, int y, Team team) {
     if ((team == white) && (currentTeam == white)) {
       if ((p instanceof Pawn) && (p.getValidSquares(currentX, currentY, x, y, team)) && (y == 1)) {
@@ -229,6 +233,7 @@ class Checkerboard extends JPanel {
     }
   }
   
+  //Paint the checkerboard and the pieces.
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     
@@ -404,8 +409,10 @@ class Checkerboard extends JPanel {
     if (black.pawn8.getStatus()) {
       g.fillPolygon(black.pawn8.piece);
     }
+    //There must be a better way to do that too.
   }
 
+  //Promote pawns to queens.
   public void upgradePawn(Piece p) {
     if (p == white.pawn1) {
       white.pawn1 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
