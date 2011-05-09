@@ -49,8 +49,9 @@ class Checkerboard extends JPanel {
   
   //If the mouse clicked on a square, process it.
   public void processClick(int xPoint, int yPoint) {
-    int x = xPoint / this.side + 1;
-    int y = yPoint / this.side + 1;
+    int x = xPoint / this.side + 1; //Get square number for x, starting at 1
+    int y = yPoint / this.side + 1; //Get square number for y, starting at 1
+    
     if ((x > 8) || (y > 8)) {
       currentX = 0;
       currentY = 0;
@@ -168,7 +169,9 @@ class Checkerboard extends JPanel {
   //Make sure the move is valid, and execute. This need improvement too.
   public void processMove(Piece p, int x, int y, Team team) {
     if ((team == white) && (currentTeam == white)) {
-      if ((p instanceof Pawn) && (p.getValidSquares(currentX, currentY, x, y, team)) && (y == 1)) {
+      if ((p instanceof Pawn) &&
+          (p.getValidSquares(currentX, currentY, x, y, team)) && (y == 1)) {
+        //Upgrade a pawn?
         p.setX(x);
         p.setY(y);
         Game.board[x - 1][y - 1] = p;
