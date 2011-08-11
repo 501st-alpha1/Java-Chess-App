@@ -33,7 +33,7 @@ public class King extends Piece {
     int x = super.getX() * w - w / 2;
     int y = super.getY() * w - w / 2;
     w = (int)(w * 0.9);
-    this.piece = Polygons.setPolygon(w, x, y, 1);
+    this.piece = Polygons.setPolygon(w, x, y, Polygons.KING);
 //    this.piece.reset();
 //    this.piece.addPoint(x + (int)(w * 0.5), y + (int)(w * 0.5));
 //    this.piece.addPoint(x - (int)(w * 0.5), y + (int)(w * 0.5));
