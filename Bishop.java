@@ -59,21 +59,22 @@ public class Bishop extends Piece {
     int x = super.getX() * w - w / 2;
     int y = super.getY() * w - w / 2;
     w = (int)(w * 0.9);
-    this.piece.reset();
-    this.piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
-    this.piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
-    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.1));
-    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.15));
-    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.4));
-    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.45));
-    this.piece.addPoint(x - (int)(w * 0.2), y - (int)(w * 0.5));
-    this.piece.addPoint(x + (int)(w * 0.2), y - (int)(w * 0.5));
-    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.45));
-    this.piece.addPoint(x + (int)(w * 0.0), y - (int)(w * 0.25));
-    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.40));
-    this.piece.addPoint(x + (int)(w * 0.25), y - (int)(w * 0.2));
-    this.piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
-    this.piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5)); 
+    this.piece = Polygons.setPolygon(w, x, y, Polygons.BISHOP);
+//    this.piece.reset();
+//    this.piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
+//    this.piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
+//    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.1));
+//    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.15));
+//    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.4));
+//    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.45));
+//    this.piece.addPoint(x - (int)(w * 0.2), y - (int)(w * 0.5));
+//    this.piece.addPoint(x + (int)(w * 0.2), y - (int)(w * 0.5));
+//    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.45));
+//    this.piece.addPoint(x + (int)(w * 0.0), y - (int)(w * 0.25));
+//    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.40));
+//    this.piece.addPoint(x + (int)(w * 0.25), y - (int)(w * 0.2));
+//    this.piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
+//    this.piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5)); 
   }
 
   

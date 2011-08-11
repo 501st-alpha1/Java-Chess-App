@@ -33,21 +33,22 @@ public class Knight extends Piece {
     int x = super.getX() * w - w / 2;
     int y = super.getY() * w - w / 2;
     w = (int)(w * 0.9);
-    this.piece.reset();
-    this.piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
-    this.piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
-    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.0));
-    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.1));
-    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.3));
-    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.4));
-    this.piece.addPoint(x - (int)(w * 0.2), y - (int)(w * 0.47));
-    this.piece.addPoint(x + (int)(w * 0.2), y - (int)(w * 0.46));
-    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.35));
-    this.piece.addPoint(x + (int)(w * 0.4), y - (int)(w * 0.25));
-    this.piece.addPoint(x + (int)(w * 0.38), y - (int)(w * 0.0));
-    this.piece.addPoint(x + (int)(w * 0.25), y - (int)(w * 0.1));
-    this.piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
-    this.piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5));
+    this.piece = Polygons.setPolygon(w, x, y, Polygons.KNIGHT);
+//    this.piece.reset();
+//    this.piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
+//    this.piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
+//    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.0));
+//    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.1));
+//    this.piece.addPoint(x - (int)(w * 0.3), y - (int)(w * 0.3));
+//    this.piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.4));
+//    this.piece.addPoint(x - (int)(w * 0.2), y - (int)(w * 0.47));
+//    this.piece.addPoint(x + (int)(w * 0.2), y - (int)(w * 0.46));
+//    this.piece.addPoint(x + (int)(w * 0.3), y - (int)(w * 0.35));
+//    this.piece.addPoint(x + (int)(w * 0.4), y - (int)(w * 0.25));
+//    this.piece.addPoint(x + (int)(w * 0.38), y - (int)(w * 0.0));
+//    this.piece.addPoint(x + (int)(w * 0.25), y - (int)(w * 0.1));
+//    this.piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
+//    this.piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5));
   }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY, Team team) {
