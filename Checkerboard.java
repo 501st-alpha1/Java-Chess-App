@@ -317,6 +317,10 @@ class Checkerboard extends JPanel {
     if (white.king.getStatus()) {
       g.fillPolygon(white.king.piece);
     }
+    else {
+      System.out.println("Black is the winner!");
+      System.exit(0);
+    }
     if (white.queen.getStatus()) {
       g.fillPolygon(white.queen.piece);
     }
@@ -366,6 +370,10 @@ class Checkerboard extends JPanel {
     g.setColor(Color.BLUE);
     if (black.king.getStatus()) {
       g.fillPolygon(black.king.piece);
+    }
+    else {
+      System.out.println("White is the winner!");
+      System.exit(0);
     }
     if (black.queen.getStatus()) {
       g.fillPolygon(black.queen.piece);
