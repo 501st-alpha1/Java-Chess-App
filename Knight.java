@@ -23,7 +23,7 @@ public class Knight extends Piece {
         && (dx == 2)) || ((dy == 1) && (dx == 2)) || ((dy == 2) && (dx == 1))
         || ((dy == 2) && (dx == -1)) || ((dy == 1) && (dx == -2))
         || ((dy == -1) && (dx == -2)))
-        && (Game.board[newX - 1][newY - 1] == null)) {
+        && (board[newX - 1][newY - 1] == null)) {
       return true;
     }
     else {
@@ -40,7 +40,7 @@ public class Knight extends Piece {
   }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
-      Team team) {
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
@@ -48,8 +48,8 @@ public class Knight extends Piece {
         && (dx == 2)) || ((dy == 1) && (dx == 2)) || ((dy == 2) && (dx == 1))
         || ((dy == 2) && (dx == -1)) || ((dy == 1) && (dx == -2))
         || ((dy == -1) && (dx == -2))) &&
-        (Game.board[newX - 1][newY - 1] != null)
-        && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
+        (board[newX - 1][newY - 1] != null)
+        && (board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }
     else {

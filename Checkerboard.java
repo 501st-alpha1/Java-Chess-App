@@ -9,42 +9,45 @@ class Checkerboard extends JPanel {
   private int currentX = 0;
   private int currentY = 0;
   private Team currentTeam = white;
+  private Piece[][] board = new Piece[8][8];
+  //An array to keep track of which piece is on which square. "null" means the
+  //square is empty.
   
   public Checkerboard() {
     //Initialize piece positions.
-    Game.board[0][0] = black.rookEast;
-    Game.board[1][0] = black.knightEast;
-    Game.board[2][0] = black.bishopEast;
-    Game.board[3][0] = black.queen;
-    Game.board[4][0] = black.king;
-    Game.board[5][0] = black.bishopWest;
-    Game.board[6][0] = black.knightWest;
-    Game.board[7][0] = black.rookWest;
-    Game.board[0][1] = black.pawn1;
-    Game.board[1][1] = black.pawn2;
-    Game.board[2][1] = black.pawn3;
-    Game.board[3][1] = black.pawn4;
-    Game.board[4][1] = black.pawn5;
-    Game.board[5][1] = black.pawn6;
-    Game.board[6][1] = black.pawn7;
-    Game.board[7][1] = black.pawn8;
+    this.board[0][0] = black.rookEast;
+    this.board[1][0] = black.knightEast;
+    this.board[2][0] = black.bishopEast;
+    this.board[3][0] = black.queen;
+    this.board[4][0] = black.king;
+    this.board[5][0] = black.bishopWest;
+    this.board[6][0] = black.knightWest;
+    this.board[7][0] = black.rookWest;
+    this.board[0][1] = black.pawn1;
+    this.board[1][1] = black.pawn2;
+    this.board[2][1] = black.pawn3;
+    this.board[3][1] = black.pawn4;
+    this.board[4][1] = black.pawn5;
+    this.board[5][1] = black.pawn6;
+    this.board[6][1] = black.pawn7;
+    this.board[7][1] = black.pawn8;
     
-    Game.board[0][7] = white.rookWest;
-    Game.board[1][7] = white.knightWest;
-    Game.board[2][7] = white.bishopWest;
-    Game.board[3][7] = white.queen;
-    Game.board[4][7] = white.king;
-    Game.board[5][7] = white.bishopEast;
-    Game.board[6][7] = white.knightEast;
-    Game.board[7][7] = white.rookEast;
-    Game.board[0][6] = white.pawn1;
-    Game.board[1][6] = white.pawn2;
-    Game.board[2][6] = white.pawn3;
-    Game.board[3][6] = white.pawn4;
-    Game.board[4][6] = white.pawn5;
-    Game.board[5][6] = white.pawn6;
-    Game.board[6][6] = white.pawn7;
-    Game.board[7][6] = white.pawn8;
+    this.board[0][7] = white.rookWest;
+    this.board[1][7] = white.knightWest;
+    this.board[2][7] = white.bishopWest;
+    this.board[3][7] = white.queen;
+    this.board[4][7] = white.king;
+    this.board[5][7] = white.bishopEast;
+    this.board[6][7] = white.knightEast;
+    this.board[7][7] = white.rookEast;
+    this.board[0][6] = white.pawn1;
+    this.board[1][6] = white.pawn2;
+    this.board[2][6] = white.pawn3;
+    this.board[3][6] = white.pawn4;
+    this.board[4][6] = white.pawn5;
+    this.board[5][6] = white.pawn6;
+    this.board[6][6] = white.pawn7;
+    this.board[7][6] = white.pawn8;
   }
   
   //If the mouse clicked on a square, process it.
@@ -170,33 +173,33 @@ class Checkerboard extends JPanel {
   public void processMove(Piece p, int x, int y, Team team) {
     if ((team == white) && (currentTeam == white)) {
       if ((p instanceof Pawn) &&
-          (p.getValidSquares(currentX, currentY, x, y, team, Game.board))
+          (p.getValidSquares(currentX, currentY, x, y, team, this.board))
           && (y == 1)) {
         //Upgrade a pawn?
         p.setX(x);
         p.setY(y);
-        Game.board[x - 1][y - 1] = p;
-        Game.board[currentX - 1][currentY - 1] = null;
+        this.board[x - 1][y - 1] = p;
+        this.board[currentX - 1][currentY - 1] = null;
         currentX = 0;
         currentY = 0;
         currentTeam = black;
         this.upgradePawn(p);
       }
-      else if (p.getValidSquares(currentX, currentY, x, y, team, Game.board)) {
+      else if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
         p.setX(x);
         p.setY(y);
-        Game.board[x - 1][y - 1] = p;
-        Game.board[currentX - 1][currentY - 1] = null;
+        this.board[x - 1][y - 1] = p;
+        this.board[currentX - 1][currentY - 1] = null;
         currentX = 0;
         currentY = 0;
         currentTeam = black;
       }
-      else if (p.getAttackSquares(currentX, currentY, x, y, team)) {
-        Game.board[x - 1][y - 1].setStatus(false);
+      else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
+        this.board[x - 1][y - 1].setStatus(false);
         p.setX(x);
         p.setY(y);
-        Game.board[x - 1][y - 1] = p;
-        Game.board[currentX - 1][currentY - 1] = null;
+        this.board[x - 1][y - 1] = p;
+        this.board[currentX - 1][currentY - 1] = null;
         currentX = 0;
         currentY = 0;
         currentTeam = black;
@@ -207,21 +210,21 @@ class Checkerboard extends JPanel {
       }
     }
     else if ((team == black) && (currentTeam == black)){
-      if (p.getValidSquares(currentX, currentY, x, y, team, Game.board)) {
+      if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
         p.setX(x);
         p.setY(y);
-        Game.board[x - 1][y - 1] = p;
-        Game.board[currentX - 1][currentY - 1] = null;
+        this.board[x - 1][y - 1] = p;
+        this.board[currentX - 1][currentY - 1] = null;
         currentX = 0;
         currentY = 0;
         currentTeam = white;
       }
-      else if (p.getAttackSquares(currentX, currentY, x, y, team)) {
-        Game.board[x - 1][y - 1].setStatus(false);
+      else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
+        this.board[x - 1][y - 1].setStatus(false);
         p.setX(x);
         p.setY(y);
-        Game.board[x - 1][y - 1] = p;
-        Game.board[currentX - 1][currentY - 1] = null;
+        this.board[x - 1][y - 1] = p;
+        this.board[currentX - 1][currentY - 1] = null;
         currentX = 0;
         currentY = 0;
         currentTeam = white;
@@ -477,5 +480,5 @@ class Checkerboard extends JPanel {
     }
   }
   
-  //Game.board[x - 1][y - 1]
+  //this.board[x - 1][y - 1]
 }

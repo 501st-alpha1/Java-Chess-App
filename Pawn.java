@@ -56,19 +56,22 @@ public class Pawn extends Piece {
     this.piece = Polygons.setPolygon(w, x, y, Polygons.PAWN);
   }
 
-  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
     if (team.color == Team.WHITE) {
-      if (((dx == 1) || (dx == -1)) && (dy == -1) && (Game.board[newX - 1][newY - 1] != null)
-          && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
+      if (((dx == 1) || (dx == -1)) && (dy == -1)
+          && (board[newX - 1][newY - 1] != null)
+          && (board[newX - 1][newY - 1].getTeam() != team.color)) {
         return true;
       }
     }
     else {
-      if (((dx == 1) || (dx == -1)) && (dy == 1) && (Game.board[newX - 1][newY - 1] != null)
-          && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
+      if (((dx == 1) || (dx == -1)) && (dy == 1)
+          && (board[newX - 1][newY - 1] != null)
+          && (board[newX - 1][newY - 1].getTeam() != team.color)) {
         return true;
       }
     }

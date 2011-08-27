@@ -65,7 +65,7 @@ public class Bishop extends Piece {
 
   
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
-      Team team) {
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     int a, b = 0;
@@ -84,9 +84,9 @@ public class Bishop extends Piece {
       b = newY + 1;
     }
     
-    if (this.getValidSquares(oldX, oldY, a, b, null, Game.board)
-        && (Game.board[newX - 1][newY - 1] != null)
-        && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
+    if (this.getValidSquares(oldX, oldY, a, b, null, board)
+        && (board[newX - 1][newY - 1] != null)
+        && (board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }
     

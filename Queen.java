@@ -101,7 +101,7 @@ public class Queen extends Piece {
   }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
-      Team team) {
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     int a;
@@ -127,9 +127,9 @@ public class Queen extends Piece {
       b = newY;
     }
     
-    if (this.getValidSquares(oldX, oldY, a, b, null, Game.board)
-        && (Game.board[newX - 1][newY - 1] != null)
-        && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
+    if (this.getValidSquares(oldX, oldY, a, b, null, board)
+        && (board[newX - 1][newY - 1] != null)
+        && (board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }
     
