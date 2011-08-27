@@ -14,14 +14,15 @@ public class Rook extends Piece {
     super(x, y, w, team);
   }
   
-  public boolean getValidSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;    
 
     if (dx == 0) {
       if (dy > 0) {
         for (int i = 1; i <= dy; i++) {
-          if (Game.board[oldX - 1][oldY + i - 1] != null) {
+          if (board[oldX - 1][oldY + i - 1] != null) {
             return false;
           }
         }
@@ -29,7 +30,7 @@ public class Rook extends Piece {
       }
       else {
         for (int i = -1; i >= dy; i--) {
-          if (Game.board[oldX - 1][oldY + i - 1] != null) {
+          if (board[oldX - 1][oldY + i - 1] != null) {
             return false;
           }
         }
@@ -39,7 +40,7 @@ public class Rook extends Piece {
     else if (dy == 0) {
       if (dx > 0) {
         for (int i = 1; i <= dx; i++) {
-          if (Game.board[oldX + i - 1][oldY - 1] != null) {
+          if (board[oldX + i - 1][oldY - 1] != null) {
             return false;
           }
         }
@@ -47,7 +48,7 @@ public class Rook extends Piece {
       }
       else {
         for (int i = -1; i >= dx; i--) {
-          if (Game.board[oldX + i - 1][oldY - 1] != null) {
+          if (board[oldX + i - 1][oldY - 1] != null) {
             return false;
           }
         }
@@ -68,7 +69,8 @@ public class Rook extends Piece {
     this.piece = Polygons.setPolygon(w, x, y, Polygons.ROOK);
   }
 
-  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
+      Team team) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
@@ -95,7 +97,8 @@ public class Rook extends Piece {
       b = newY;
     }
     
-    if (this.getValidSquares(oldX, oldY, a, b, null) && (Game.board[newX - 1][newY - 1] != null)
+    if (this.getValidSquares(oldX, oldY, a, b, null, Game.board)
+        && (Game.board[newX - 1][newY - 1] != null)
         && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }

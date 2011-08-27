@@ -11,14 +11,15 @@ public class Bishop extends Piece {
     super(x, y, width, team);
   }
   
-  public boolean getValidSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
     if ((dx == dy) || (dx == -dy)) {
       if ((dx > 0) && (dy > 0)) {
           for (int i = 1; i <= dx; i++) {
-            if (Game.board[oldX + i - 1][oldY + i - 1] != null) {
+            if (board[oldX + i - 1][oldY + i - 1] != null) {
               return false;
             }
           }
@@ -26,7 +27,7 @@ public class Bishop extends Piece {
       }
       else if ((dx > 0) && (dy < 0)) {
         for (int i = 1; i <= dx; i++) {
-          if (Game.board[oldX + i - 1][oldY - i - 1] != null) {
+          if (board[oldX + i - 1][oldY - i - 1] != null) {
             return false;
           }
         }
@@ -34,7 +35,7 @@ public class Bishop extends Piece {
       }
       else if ((dx < 0) && (dy > 0)) {
         for (int i = -1; i >= dx; i--) {
-          if (Game.board[oldX + i - 1][oldY - i - 1] != null) {
+          if (board[oldX + i - 1][oldY - i - 1] != null) {
             return false;
           }
         }
@@ -42,7 +43,7 @@ public class Bishop extends Piece {
       }
       else {
         for (int i = -1; i >= dx; i--) {
-          if (Game.board[oldX + i - 1][oldY + i - 1] != null) {
+          if (board[oldX + i - 1][oldY + i - 1] != null) {
             return false;
           }
         }
@@ -63,7 +64,8 @@ public class Bishop extends Piece {
   }
 
   
-  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
+      Team team) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     int a, b = 0;
@@ -82,7 +84,8 @@ public class Bishop extends Piece {
       b = newY + 1;
     }
     
-    if (this.getValidSquares(oldX, oldY, a, b, null) && (Game.board[newX - 1][newY - 1] != null)
+    if (this.getValidSquares(oldX, oldY, a, b, null, Game.board)
+        && (Game.board[newX - 1][newY - 1] != null)
         && (Game.board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }

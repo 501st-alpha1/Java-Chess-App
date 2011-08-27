@@ -71,7 +71,7 @@ public abstract class Piece {
     return this.team;
   }
   
-  public abstract boolean getValidSquares(int oldX, int oldY, int newX, int newY, Team team);
+  public abstract boolean getValidSquares(int oldX, int oldY, int newX, int newY, Team team, Piece[][] board);
   
   public abstract boolean getAttackSquares(int oldX, int oldY, int newX, int newY, Team team);
   

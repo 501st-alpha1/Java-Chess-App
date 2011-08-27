@@ -170,7 +170,8 @@ class Checkerboard extends JPanel {
   public void processMove(Piece p, int x, int y, Team team) {
     if ((team == white) && (currentTeam == white)) {
       if ((p instanceof Pawn) &&
-          (p.getValidSquares(currentX, currentY, x, y, team)) && (y == 1)) {
+          (p.getValidSquares(currentX, currentY, x, y, team, Game.board))
+          && (y == 1)) {
         //Upgrade a pawn?
         p.setX(x);
         p.setY(y);
@@ -181,7 +182,7 @@ class Checkerboard extends JPanel {
         currentTeam = black;
         this.upgradePawn(p);
       }
-      else if (p.getValidSquares(currentX, currentY, x, y, team)) {
+      else if (p.getValidSquares(currentX, currentY, x, y, team, Game.board)) {
         p.setX(x);
         p.setY(y);
         Game.board[x - 1][y - 1] = p;
@@ -206,7 +207,7 @@ class Checkerboard extends JPanel {
       }
     }
     else if ((team == black) && (currentTeam == black)){
-      if (p.getValidSquares(currentX, currentY, x, y, team)) {
+      if (p.getValidSquares(currentX, currentY, x, y, team, Game.board)) {
         p.setX(x);
         p.setY(y);
         Game.board[x - 1][y - 1] = p;
@@ -273,7 +274,8 @@ class Checkerboard extends JPanel {
     
     if ((currentX != 0) && (currentY != 0)) {
       g.setColor(Color.RED);
-      g.fillRect((currentX - 1) * this.side, (currentY - 1) * this.side, this.side, this.side);
+      g.fillRect((currentX - 1) * this.side, (currentY - 1) * this.side,
+          this.side, this.side);
     }
     
     //Make sure everything is the right size

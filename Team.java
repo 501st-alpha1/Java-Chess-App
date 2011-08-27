@@ -21,7 +21,8 @@ public class Team {
   public final static int WHITE = 0;
   public final static int BLACK = 1;
   
-  //Create new pieces and place them in their proper position, depending on the team color.
+  //Create new pieces and place them in their proper position, depending on the
+  //team color.
   public Team(int color) {
     this.color = color;
     if (color == WHITE) {

@@ -15,15 +15,18 @@ public class Pawn extends Piece {
     super(x, y, w, team);
   }
   
-  public boolean getValidSquares(int oldX, int oldY, int newX, int newY, Team team) {
+  public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
+      Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
     if (team.color == Team.WHITE) {
-      if ((dx == 0) && (dy == -1) && Game.board[newX - 1][newY - 1] == null) {
+      if ((dx == 0) && (dy == -1) && board[newX - 1][newY - 1] == null) {
         return true;
       }
-      else if (((dx == 0) && (oldY == 7) && (newY == 5)) && Game.board[newX - 1][newY - 1] == null && Game.board[newX - 1][newY - 2] == null) {
+      else if (((dx == 0) && (oldY == 7) && (newY == 5)) &&
+          board[newX - 1][newY - 1] == null
+          && board[newX - 1][newY - 2] == null) {
         return true;
       }
       else {
@@ -31,10 +34,12 @@ public class Pawn extends Piece {
       }
     }
     else {
-      if ((dx == 0) && (dy == 1) && Game.board[newX - 1][newY - 1] == null) {
+      if ((dx == 0) && (dy == 1) && board[newX - 1][newY - 1] == null) {
         return true;
       }
-      else if (((dx == 0) && (oldY == 2) && (newY == 4)) && Game.board[newX - 1][newY - 1] == null && Game.board[newX - 1][newY - 2] == null) {
+      else if (((dx == 0) && (oldY == 2) && (newY == 4)) &&
+          board[newX - 1][newY - 1] == null
+          && board[newX - 1][newY - 2] == null) {
         return true;
       }
       else {
