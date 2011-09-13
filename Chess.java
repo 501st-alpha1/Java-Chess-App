@@ -1,11 +1,16 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 
 public class Chess extends JPanel {
   Game p1;
+  //OptionPanel p2;
+  private int side;
   
   //Set up frame or applet. TODO: Applet doesn't work with object tag.
   public static void main(String[] args) {
@@ -38,14 +43,16 @@ public class Chess extends JPanel {
   //Create new checkerboard panel; add it and listener to frame.
   public Chess() {
     p1 = new Game();
+    //p2 = new OptionPanel();
+    
     this.add(p1);
     this.addMouseListener(new MoveListener());
   }
   
   //If the mouse clicked on a square, process it.
   public void processClick(int xPoint, int yPoint) {
-    int x = xPoint / p1.getSide() + 1; //Get square number for x, starting at 1
-    int y = yPoint / p1.getSide() + 1; //Get square number for y, starting at 1
+    int x = xPoint / side + 1; //Get square number for x, starting at 1
+    int y = yPoint / side + 1; //Get square number for y, starting at 1
     boolean valid = false;
     
     if ((x > 8) || (y > 8)) {
@@ -88,10 +95,10 @@ public class Chess extends JPanel {
     
     //Get the width of each square
     if (this.getWidth() > this.getHeight()) {
-      p1.setSide(this.getHeight() / 8);
+      side = this.getHeight() / 8;
     }
     else {
-      p1.setSide(this.getWidth() / 8);
+      side = this.getWidth() / 8;
     }
     
     //Draw squares
@@ -106,7 +113,7 @@ public class Chess extends JPanel {
           g.setColor(new Color(20, 190, 20));
           isWhite = true;
         }
-        g.fillRect((i * p1.getSide()), (j * p1.getSide()), (p1.getSide()), (p1.getSide()));
+        g.fillRect((i * side), (j * side), side, side);
       }
       
       if (i % 2 == 0) {
@@ -119,14 +126,14 @@ public class Chess extends JPanel {
     
     if ((p1.getCurrentX() != 0) && (p1.getCurrentY() != 0)) {
       g.setColor(Color.RED);
-      g.fillRect((p1.getCurrentX() - 1) * p1.getSide(), (p1.getCurrentY() - 1) * p1.getSide(),
-          p1.getSide(), p1.getSide());
+      g.fillRect((p1.getCurrentX() - 1) * side, (p1.getCurrentY() - 1) * side,
+          side, side);
     }
     
     //Make sure everything is the right size
-    Piece.setWidth(p1.getSide());
+    Piece.setWidth(side);
 
-    int width = Piece.getWidth();
+    int width = side;
     for (int i = 0; i < p1.white.pieces.size(); i++) {
       Polygons.setPolygon(p1.white.pieces.get(i), width, p1.white.pieces.get(i).getType());
     }
@@ -149,7 +156,7 @@ public class Chess extends JPanel {
       }
     }
     
-    g.setColor(Color.BLUE);
+    g.setColor(new Color(255, 0, 255));
     if (p1.black.king.getStatus()) {
       g.fillPolygon(p1.black.king.piece);
     }
@@ -188,4 +195,11 @@ public class Chess extends JPanel {
       // Do nothing
     }
   }
+  
+//  class OptionPanel extends JPanel {
+//    public OptionPanel() {
+//      JRadioButton black = new JRadioButton("Black");
+//      this.add(black);
+//    }
+//  }
 }

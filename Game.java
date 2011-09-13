@@ -1,11 +1,8 @@
-import java.awt.Color;
-import java.awt.Graphics;
 import javax.swing.JPanel;
 
 class Game extends JPanel {
   public Team white = new Team(Team.WHITE);
   public Team black = new Team(Team.BLACK);
-  private int side;
   private int currentX = 0;
   private int currentY = 0;
   private Team currentTeam = white;
@@ -190,12 +187,5 @@ class Game extends JPanel {
   public int getCurrentY() {
     return this.currentY;
   }
-  
-  public void setSide(int side) {
-    this.side = side;
-  }
-  
-  public int getSide() {
-    return this.side;
-  }
+
 }
