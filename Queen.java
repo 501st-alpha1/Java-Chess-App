@@ -5,10 +5,12 @@ public class Queen extends Piece {
   
   public Queen(int x, int y, int w) {
     super(x, y, w);
+    super.setType(Piece.QUEEN);
   }
   
   public Queen(int x, int y, int w, int team) {
     super(x, y, w, team);
+    super.setType(Piece.QUEEN);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,

@@ -1,17 +1,17 @@
-import java.awt.*;
-import javax.swing.*;
-
 public class Rook extends Piece {
   public Rook() {
     super();
+    super.setType(Piece.ROOK);
   }
   
   public Rook(int x, int y, int width) {
     super(x, y, width);
+    super.setType(Piece.ROOK);
   }
   
   public Rook(int x, int y, int w, int team) {
     super(x, y, w, team);
+    super.setType(Piece.ROOK);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,

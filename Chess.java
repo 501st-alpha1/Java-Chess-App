@@ -127,39 +127,12 @@ public class Chess extends JPanel {
     Piece.setWidth(p1.getSide());
 
     int width = Piece.getWidth();
-    Polygons.setPolygon(p1.white.king, width, Polygons.KING);
-    Polygons.setPolygon(p1.white.queen, width, Polygons.QUEEN);
-    Polygons.setPolygon(p1.white.rookEast, width, Polygons.ROOK);
-    Polygons.setPolygon(p1.white.rookWest, width, Polygons.ROOK);
-    Polygons.setPolygon(p1.white.knightEast, width, Polygons.KNIGHT);
-    Polygons.setPolygon(p1.white.knightWest, width, Polygons.KNIGHT);
-    Polygons.setPolygon(p1.white.bishopEast, width, Polygons.BISHOP);
-    Polygons.setPolygon(p1.white.bishopWest, width, Polygons.BISHOP);
-    Polygons.setPolygon(p1.white.pawn1, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn2, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn3, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn4, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn5, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn6, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn7, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.white.pawn8, width, Polygons.PAWN);
-    
-    Polygons.setPolygon(p1.black.king, width, Polygons.KING);
-    Polygons.setPolygon(p1.black.queen, width, Polygons.QUEEN);
-    Polygons.setPolygon(p1.black.rookEast, width, Polygons.ROOK);
-    Polygons.setPolygon(p1.black.rookWest, width, Polygons.ROOK);
-    Polygons.setPolygon(p1.black.knightEast, width, Polygons.KNIGHT);
-    Polygons.setPolygon(p1.black.knightWest, width, Polygons.KNIGHT);
-    Polygons.setPolygon(p1.black.bishopEast, width, Polygons.BISHOP);
-    Polygons.setPolygon(p1.black.bishopWest, width, Polygons.BISHOP);
-    Polygons.setPolygon(p1.black.pawn1, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn2, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn3, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn4, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn5, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn6, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn7, width, Polygons.PAWN);
-    Polygons.setPolygon(p1.black.pawn8, width, Polygons.PAWN);
+    for (int i = 0; i < p1.white.pieces.size(); i++) {
+      Polygons.setPolygon(p1.white.pieces.get(i), width, p1.white.pieces.get(i).getType());
+    }
+    for (int i = 0; i < p1.black.pieces.size(); i++) {
+      Polygons.setPolygon(p1.black.pieces.get(i), width, p1.black.pieces.get(i).getType());
+    }
 
     //Draw the pieces
     g.setColor(Color.BLACK);

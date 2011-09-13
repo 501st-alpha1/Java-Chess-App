@@ -1,17 +1,17 @@
-import java.awt.*;
-import javax.swing.*;
-
 public class King extends Piece {
   public King() {
     super();
+    super.setType(Piece.KING);
   }
   
   public King(int x, int y, int w) {
     super(x, y, w);
+    super.setType(Piece.KING);
   }
   
   public King(int x, int y, int w, int team) {
     super(x, y, w, team);
+    super.setType(Piece.KING);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,

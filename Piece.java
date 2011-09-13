@@ -7,6 +7,13 @@ public abstract class Piece {
   private static int width;
   private boolean status;
   private int team;
+  public static final int KING = 1;
+  public static final int QUEEN = 2;
+  public static final int BISHOP = 3;
+  public static final int KNIGHT = 4;
+  public static final int ROOK = 5;
+  public static final int PAWN = 6;
+  private int type;
   
   public final static int WHITE = 0;
   public final static int BLACK = 1;
@@ -69,6 +76,14 @@ public abstract class Piece {
   
   public int getTeam() {
     return this.team;
+  }
+  
+  public int getType() {
+    return this.type;
+  }
+  
+  public void setType(int t) {
+    this.type = t;
   }
   
   public abstract boolean getValidSquares(int oldX, int oldY, int newX,

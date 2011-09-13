@@ -5,10 +5,12 @@ public class Bishop extends Piece {
   
   public Bishop(int x, int y, int width) {
     super(x, y, width);
+    super.setType(Piece.BISHOP);
   }
   
   public Bishop(int x, int y, int width, int team) {
     super(x, y, width, team);
+    super.setType(Piece.BISHOP);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,

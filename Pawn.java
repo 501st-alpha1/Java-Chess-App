@@ -1,17 +1,17 @@
-import java.awt.*;
-import javax.swing.*;
-
 public class Pawn extends Piece {
   public Pawn() {
     super();
+    super.setType(Piece.PAWN);
   }
   
   public Pawn(int x, int y, int w) {
     super(x, y, w);
+    super.setType(Piece.PAWN);
   }
   
   public Pawn(int x, int y, int w, int team) {
     super(x, y, w, team);
+    super.setType(Piece.PAWN);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
