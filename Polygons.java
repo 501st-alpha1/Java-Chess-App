@@ -1,18 +1,11 @@
 import java.awt.*;
 
 public class Polygons {
-  public static final int KING = 1;
-  public static final int QUEEN = 2;
-  public static final int BISHOP = 3;
-  public static final int KNIGHT = 4;
-  public static final int ROOK = 5;
-  public static final int PAWN = 6;
-  
   public static Polygon setPolygon(int w, int x, int y, int type) {
     Polygon piece = new Polygon();
     
     switch (type) {
-      case KING:
+      case Piece.KING:
         piece.addPoint(x + (int)(w * 0.5), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.5), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.5), y + (int)(w * 0.45));
@@ -34,7 +27,7 @@ public class Polygons {
         piece.addPoint(x + (int)(w * 0.2), y + (int)(w * 0.45));
         piece.addPoint(x + (int)(w * 0.5), y + (int)(w * 0.45));
         break;
-      case QUEEN:
+      case Piece.QUEEN:
         piece.addPoint(x + (int)(w * 0.4), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.4), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.4), y + (int)(w * 0.45));
@@ -52,7 +45,7 @@ public class Polygons {
         piece.addPoint(x + (int)(w * 0.2), y + (int)(w * 0.45));
         piece.addPoint(x + (int)(w * 0.4), y + (int)(w * 0.45));
         break;
-      case BISHOP:
+      case Piece.BISHOP:
         piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.1));
@@ -68,7 +61,7 @@ public class Polygons {
         piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5)); 
         break;
-      case KNIGHT:
+      case Piece.KNIGHT:
         piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.0));
@@ -84,7 +77,7 @@ public class Polygons {
         piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5));
         break;
-      case ROOK:
+      case Piece.ROOK:
         piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.2));
@@ -96,7 +89,7 @@ public class Polygons {
         piece.addPoint(x + (int)(w * 0.25), y + (int)(w * 0.4));
         piece.addPoint(x + (int)(w * 0.3), y + (int)(w * 0.5));
         break;
-      case PAWN:
+      case Piece.PAWN:
         piece.addPoint(x - (int)(w * 0.3), y + (int)(w * 0.5));
         piece.addPoint(x - (int)(w * 0.2), y - (int)(w * 0.1));
         piece.addPoint(x - (int)(w * 0.25), y - (int)(w * 0.2));
