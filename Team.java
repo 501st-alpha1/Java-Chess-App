@@ -1,4 +1,3 @@
-
 public class Team {
   public King king;
   public Queen queen;
@@ -62,4 +61,5 @@ public class Team {
       this.pawn8 = new Pawn(8, 2, 40, Piece.BLACK);
     }
   }
+
 }

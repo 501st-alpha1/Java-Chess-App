@@ -8,7 +8,6 @@ public class Pawn extends Piece {
   
   public Pawn(int x, int y, int w) {
     super(x, y, w);
-    this.setPolygon();
   }
   
   public Pawn(int x, int y, int w, int team) {
@@ -46,14 +45,6 @@ public class Pawn extends Piece {
         return false;
       }
     }
-  }
-  
-  public void setPolygon() {
-    int w = super.getWidth();
-    int x = super.getX() * w - w / 2;
-    int y = super.getY() * w - w / 2;
-    w = (int)(w * 0.8);
-    this.piece = Polygons.setPolygon(w, x, y, Polygons.PAWN);
   }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,

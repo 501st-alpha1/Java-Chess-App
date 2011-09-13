@@ -30,14 +30,6 @@ public class Knight extends Piece {
       return false;
     }
   }
-  
-  public void setPolygon() {
-    int w = super.getWidth();
-    int x = super.getX() * w - w / 2;
-    int y = super.getY() * w - w / 2;
-    w = (int)(w * 0.9);
-    this.piece = Polygons.setPolygon(w, x, y, Polygons.KNIGHT);
-  }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
       Team team, Piece[][] board) {

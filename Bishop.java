@@ -55,15 +55,6 @@ public class Bishop extends Piece {
     }
   }
   
-  public void setPolygon() {
-    int w = super.getWidth();
-    int x = super.getX() * w - w / 2;
-    int y = super.getY() * w - w / 2;
-    w = (int)(w * 0.9);
-    this.piece = Polygons.setPolygon(w, x, y, Polygons.BISHOP);
-  }
-
-  
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,
       Team team, Piece[][] board) {
     int dx = newX - oldX;

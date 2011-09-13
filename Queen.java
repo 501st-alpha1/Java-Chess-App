@@ -5,7 +5,6 @@ public class Queen extends Piece {
   
   public Queen(int x, int y, int w) {
     super(x, y, w);
-    this.setPolygon();
   }
   
   public Queen(int x, int y, int w, int team) {
@@ -90,14 +89,6 @@ public class Queen extends Piece {
     else {
       return false;
     }
-  }
-  
-  public void setPolygon() {
-    int w = super.getWidth();
-    int x = super.getX() * w - w / 2;
-    int y = super.getY() * w - w / 2;
-    w = (int)(w * 0.9);
-    this.piece = Polygons.setPolygon(w, x, y, Polygons.QUEEN);
   }
 
   public boolean getAttackSquares(int oldX, int oldY, int newX, int newY,

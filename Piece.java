@@ -76,6 +76,4 @@ public abstract class Piece {
   
   public abstract boolean getAttackSquares(int oldX, int oldY, int newX,
       int newY, Team team, Piece[][] board);
-  
-  public abstract void setPolygon();
 }

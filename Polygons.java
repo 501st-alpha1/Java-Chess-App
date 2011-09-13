@@ -115,4 +115,8 @@ public class Polygons {
     
     return piece;
   }
+
+  public static void setPolygon(Piece p, int w, int type) {
+    p.piece = setPolygon((int)(w * 0.9), p.getX() * w - w / 2, p.getY() * w - w / 2, type);
+  }
 }
