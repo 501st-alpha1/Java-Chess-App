@@ -46,117 +46,38 @@ public class Chess extends JPanel {
   public void processClick(int xPoint, int yPoint) {
     int x = xPoint / p1.getSide() + 1; //Get square number for x, starting at 1
     int y = yPoint / p1.getSide() + 1; //Get square number for y, starting at 1
+    boolean valid = false;
     
     if ((x > 8) || (y > 8)) {
       p1.setCurrentX(0);
       p1.setCurrentY(0);
+      valid = true;
     }
-    else if ((x == p1.getCurrentX()) && (y == p1.getCurrentY())) {
+    if ((x == p1.getCurrentX()) && (y == p1.getCurrentY())) {
       p1.setCurrentX(0);
       p1.setCurrentY(0);
-    }
-    else if ((p1.white.king.getX() == p1.getCurrentX()) && (p1.white.king.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.king, x, y, p1.white);
-    }
-    else if ((p1.white.queen.getX() == p1.getCurrentX()) && (p1.white.queen.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.queen, x, y, p1.white);
-    }
-    else if ((p1.white.rookWest.getX() == p1.getCurrentX()) && (p1.white.rookWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.rookWest, x, y, p1.white);
-    }
-    else if ((p1.white.rookEast.getX() == p1.getCurrentX()) && (p1.white.rookEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.rookEast, x, y, p1.white);
-    }
-    else if ((p1.white.knightWest.getX() == p1.getCurrentX()) && (p1.white.knightWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.knightWest, x, y, p1.white);
-    }
-    else if ((p1.white.knightEast.getX() == p1.getCurrentX()) && (p1.white.knightEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.knightEast, x, y, p1.white);
-    }
-    else if ((p1.white.bishopWest.getX() == p1.getCurrentX()) && (p1.white.bishopWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.bishopWest, x, y, p1.white);
-    }
-    else if ((p1.white.bishopEast.getX() == p1.getCurrentX()) && (p1.white.bishopEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.bishopEast, x, y, p1.white);
-    }
-    else if ((p1.white.pawn1.getX() == p1.getCurrentX()) && (p1.white.pawn1.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn1, x, y, p1.white);
-    }
-    else if ((p1.white.pawn2.getX() == p1.getCurrentX()) && (p1.white.pawn2.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn2, x, y, p1.white);
-    }
-    else if ((p1.white.pawn3.getX() == p1.getCurrentX()) && (p1.white.pawn3.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn3, x, y, p1.white);
-    }
-    else if ((p1.white.pawn4.getX() == p1.getCurrentX()) && (p1.white.pawn4.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn4, x, y, p1.white);
-    }
-    else if ((p1.white.pawn5.getX() == p1.getCurrentX()) && (p1.white.pawn5.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn5, x, y, p1.white);
-    }
-    else if ((p1.white.pawn6.getX() == p1.getCurrentX()) && (p1.white.pawn6.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn6, x, y, p1.white);
-    }
-    else if ((p1.white.pawn7.getX() == p1.getCurrentX()) && (p1.white.pawn7.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn7, x, y, p1.white);
-    }
-    else if ((p1.white.pawn8.getX() == p1.getCurrentX()) && (p1.white.pawn8.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.white.pawn8, x, y, p1.white);
+      valid = true;
     }
     
-    else if ((p1.black.king.getX() == p1.getCurrentX()) && (p1.black.king.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.king, x, y, p1.black);
+    for (int i = 0; i < p1.white.pieces.size(); i++) {
+      if ((p1.white.pieces.get(i).getX() == p1.getCurrentX()) && (p1.white.pieces.get(i).getY() == p1.getCurrentY())) {
+        p1.processMove(p1.white.pieces.get(i), x, y, p1.white);
+        valid = true;
+        break;
+      }
     }
-    else if ((p1.black.queen.getX() == p1.getCurrentX()) && (p1.black.queen.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.queen, x, y, p1.black);
+    for (int i = 0; i < p1.black.pieces.size(); i++) {
+      if ((p1.black.pieces.get(i).getX() == p1.getCurrentX()) && (p1.black.pieces.get(i).getY() == p1.getCurrentY())) {
+        p1.processMove(p1.black.pieces.get(i), x, y, p1.black);
+        valid = true;
+        break;
+      }
     }
-    else if ((p1.black.rookWest.getX() == p1.getCurrentX()) && (p1.black.rookWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.rookWest, x, y, p1.black);
-    }
-    else if ((p1.black.rookEast.getX() == p1.getCurrentX()) && (p1.black.rookEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.rookEast, x, y, p1.black);
-    }
-    else if ((p1.black.knightWest.getX() == p1.getCurrentX()) && (p1.black.knightWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.knightWest, x, y, p1.black);
-    }
-    else if ((p1.black.knightEast.getX() == p1.getCurrentX()) && (p1.black.knightEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.knightEast, x, y, p1.black);
-    }
-    else if ((p1.black.bishopWest.getX() == p1.getCurrentX()) && (p1.black.bishopWest.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.bishopWest, x, y, p1.black);
-    }
-    else if ((p1.black.bishopEast.getX() == p1.getCurrentX()) && (p1.black.bishopEast.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.bishopEast, x, y, p1.black);
-    }
-    else if ((p1.black.pawn1.getX() == p1.getCurrentX()) && (p1.black.pawn1.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn1, x, y, p1.black);
-    }
-    else if ((p1.black.pawn2.getX() == p1.getCurrentX()) && (p1.black.pawn2.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn2, x, y, p1.black);
-    }
-    else if ((p1.black.pawn3.getX() == p1.getCurrentX()) && (p1.black.pawn3.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn3, x, y, p1.black);
-    }
-    else if ((p1.black.pawn4.getX() == p1.getCurrentX()) && (p1.black.pawn4.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn4, x, y, p1.black);
-    }
-    else if ((p1.black.pawn5.getX() == p1.getCurrentX()) && (p1.black.pawn5.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn5, x, y, p1.black);
-    }
-    else if ((p1.black.pawn6.getX() == p1.getCurrentX()) && (p1.black.pawn6.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn6, x, y, p1.black);
-    }
-    else if ((p1.black.pawn7.getX() == p1.getCurrentX()) && (p1.black.pawn7.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn7, x, y, p1.black);
-    }
-    else if ((p1.black.pawn8.getX() == p1.getCurrentX()) && (p1.black.pawn8.getY() == p1.getCurrentY())) {
-      p1.processMove(p1.black.pawn8, x, y, p1.black);
-    }
-    else {
+    
+    if (!valid) {
       p1.setCurrentX(x);
       p1.setCurrentY(y);
     }
-    //There must be *some* better way to do that!
     
     repaint();
   }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Team {
   public King king;
   public Queen queen;
@@ -16,6 +18,7 @@ public class Team {
   public Piece pawn7;
   public Piece pawn8;
   public int color;
+  public ArrayList<Piece> pieces;
   
   public final static int WHITE = 0;
   public final static int BLACK = 1;
@@ -23,6 +26,7 @@ public class Team {
   //Create new pieces and place them in their proper position, depending on the
   //team color.
   public Team(int color) {
+    pieces = new ArrayList<Piece>();
     this.color = color;
     if (color == WHITE) {
       this.king = new King(5, 8, 40, Piece.WHITE);
@@ -60,6 +64,23 @@ public class Team {
       this.pawn7 = new Pawn(7, 2, 40, Piece.BLACK);
       this.pawn8 = new Pawn(8, 2, 40, Piece.BLACK);
     }
+    
+    pieces.add(this.king);
+    pieces.add(this.queen);
+    pieces.add(this.rookEast);
+    pieces.add(this.rookWest);
+    pieces.add(this.knightEast);
+    pieces.add(this.knightWest);
+    pieces.add(this.bishopEast);
+    pieces.add(this.bishopWest);
+    pieces.add(this.pawn1);
+    pieces.add(this.pawn2);
+    pieces.add(this.pawn3);
+    pieces.add(this.pawn4);
+    pieces.add(this.pawn5);
+    pieces.add(this.pawn6);
+    pieces.add(this.pawn7);
+    pieces.add(this.pawn8);
   }
 
 }

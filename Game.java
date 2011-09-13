@@ -61,9 +61,9 @@ class Game extends JPanel {
         p.setY(y);
         this.board[x - 1][y - 1] = p;
         this.board[currentX - 1][currentY - 1] = null;
-        currentX = 0;
-        currentY = 0;
-        currentTeam = black;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.currentTeam = black;
         this.upgradePawn(p);
       }
       else if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
@@ -71,9 +71,9 @@ class Game extends JPanel {
         p.setY(y);
         this.board[x - 1][y - 1] = p;
         this.board[currentX - 1][currentY - 1] = null;
-        currentX = 0;
-        currentY = 0;
-        currentTeam = black;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.currentTeam = black;
       }
       else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
         this.board[x - 1][y - 1].setStatus(false);
@@ -81,13 +81,13 @@ class Game extends JPanel {
         p.setY(y);
         this.board[x - 1][y - 1] = p;
         this.board[currentX - 1][currentY - 1] = null;
-        currentX = 0;
-        currentY = 0;
-        currentTeam = black;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.currentTeam = black;
       }
       else {
-        currentX = 0;
-        currentY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
       }
     }
     else if ((team == black) && (currentTeam == black)){
@@ -96,9 +96,9 @@ class Game extends JPanel {
         p.setY(y);
         this.board[x - 1][y - 1] = p;
         this.board[currentX - 1][currentY - 1] = null;
-        currentX = 0;
-        currentY = 0;
-        currentTeam = white;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.currentTeam = white;
       }
       else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
         this.board[x - 1][y - 1].setStatus(false);
@@ -106,13 +106,13 @@ class Game extends JPanel {
         p.setY(y);
         this.board[x - 1][y - 1] = p;
         this.board[currentX - 1][currentY - 1] = null;
-        currentX = 0;
-        currentY = 0;
-        currentTeam = white;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.currentTeam = white;
       }
       else {
-        currentX = 0;
-        currentY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
       }
     }
     else {
