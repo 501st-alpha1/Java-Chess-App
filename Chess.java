@@ -143,50 +143,10 @@ public class Chess extends JPanel {
       System.out.println("Black is the winner!");
       System.exit(0);
     }
-    if (p1.white.queen.getStatus()) {
-      g.fillPolygon(p1.white.queen.piece);
-    }
-    if (p1.white.rookWest.getStatus()) {
-      g.fillPolygon(p1.white.rookWest.piece);
-    }
-    if (p1.white.rookEast.getStatus()) {
-      g.fillPolygon(p1.white.rookEast.piece);
-    }
-    if (p1.white.knightWest.getStatus()) {
-      g.fillPolygon(p1.white.knightWest.piece);
-    }
-    if (p1.white.knightEast.getStatus()) {
-      g.fillPolygon(p1.white.knightEast.piece);
-    }
-    if (p1.white.bishopWest.getStatus()) {
-      g.fillPolygon(p1.white.bishopWest.piece);
-    }
-    if (p1.white.bishopEast.getStatus()) {
-      g.fillPolygon(p1.white.bishopEast.piece);
-    }
-    if (p1.white.pawn1.getStatus()) {
-      g.fillPolygon(p1.white.pawn1.piece);
-    }
-    if (p1.white.pawn2.getStatus()) {
-      g.fillPolygon(p1.white.pawn2.piece);
-    }
-    if (p1.white.pawn3.getStatus()) {
-      g.fillPolygon(p1.white.pawn3.piece);
-    }
-    if (p1.white.pawn4.getStatus()) {
-      g.fillPolygon(p1.white.pawn4.piece);
-    }
-    if (p1.white.pawn5.getStatus()) {
-      g.fillPolygon(p1.white.pawn5.piece);
-    }
-    if (p1.white.pawn6.getStatus()) {
-      g.fillPolygon(p1.white.pawn6.piece);
-    }
-    if (p1.white.pawn7.getStatus()) {
-      g.fillPolygon(p1.white.pawn7.piece);
-    }
-    if (p1.white.pawn8.getStatus()) {
-      g.fillPolygon(p1.white.pawn8.piece);
+    for (int i = 1; i < p1.white.pieces.size(); i++) {
+      if (p1.white.pieces.get(i).getStatus()) {
+        g.fillPolygon(p1.white.pieces.get(i).piece);
+      }
     }
     
     g.setColor(Color.BLUE);
@@ -197,52 +157,11 @@ public class Chess extends JPanel {
       System.out.println("White is the winner!");
       System.exit(0);
     }
-    if (p1.black.queen.getStatus()) {
-      g.fillPolygon(p1.black.queen.piece);
+    for (int i = 1; i < p1.black.pieces.size(); i++) {
+      if (p1.black.pieces.get(i).getStatus()) {
+        g.fillPolygon(p1.black.pieces.get(i).piece);
+      }
     }
-    if (p1.black.rookWest.getStatus()) {
-      g.fillPolygon(p1.black.rookWest.piece);
-    }
-    if (p1.black.rookEast.getStatus()) {
-      g.fillPolygon(p1.black.rookEast.piece);
-    }
-    if (p1.black.knightWest.getStatus()) {
-      g.fillPolygon(p1.black.knightWest.piece);
-    }
-    if (p1.black.knightEast.getStatus()) {
-      g.fillPolygon(p1.black.knightEast.piece);
-    }
-    if (p1.black.bishopWest.getStatus()) {
-      g.fillPolygon(p1.black.bishopWest.piece);
-    }
-    if (p1.black.bishopEast.getStatus()) {
-      g.fillPolygon(p1.black.bishopEast.piece);
-    }
-    if (p1.black.pawn1.getStatus()) {
-      g.fillPolygon(p1.black.pawn1.piece);
-    }
-    if (p1.black.pawn2.getStatus()) {
-      g.fillPolygon(p1.black.pawn2.piece);
-    }
-    if (p1.black.pawn3.getStatus()) {
-      g.fillPolygon(p1.black.pawn3.piece);
-    }
-    if (p1.black.pawn4.getStatus()) {
-      g.fillPolygon(p1.black.pawn4.piece);
-    }
-    if (p1.black.pawn5.getStatus()) {
-      g.fillPolygon(p1.black.pawn5.piece);
-    }
-    if (p1.black.pawn6.getStatus()) {
-      g.fillPolygon(p1.black.pawn6.piece);
-    }
-    if (p1.black.pawn7.getStatus()) {
-      g.fillPolygon(p1.black.pawn7.piece);
-    }
-    if (p1.black.pawn8.getStatus()) {
-      g.fillPolygon(p1.black.pawn8.piece);
-    }
-    //There must be a better way to do that too.
   }
   
   class MoveListener implements MouseListener{
