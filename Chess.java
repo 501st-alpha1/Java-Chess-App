@@ -45,6 +45,8 @@ public class Chess extends JPanel {
     p1 = new Game();
     //p2 = new OptionPanel();
     
+    //this.setLayout(new BorderLayout());
+    //this.add(p1, BorderLayout.CENTER);
     this.add(p1);
     this.addMouseListener(new MoveListener());
   }
@@ -67,14 +69,16 @@ public class Chess extends JPanel {
     }
     
     for (int i = 0; i < p1.white.pieces.size(); i++) {
-      if ((p1.white.pieces.get(i).getX() == p1.getCurrentX()) && (p1.white.pieces.get(i).getY() == p1.getCurrentY())) {
+      if ((p1.white.pieces.get(i).getX() == p1.getCurrentX())
+          && (p1.white.pieces.get(i).getY() == p1.getCurrentY())) {
         p1.processMove(p1.white.pieces.get(i), x, y, p1.white);
         valid = true;
         break;
       }
     }
     for (int i = 0; i < p1.black.pieces.size(); i++) {
-      if ((p1.black.pieces.get(i).getX() == p1.getCurrentX()) && (p1.black.pieces.get(i).getY() == p1.getCurrentY())) {
+      if ((p1.black.pieces.get(i).getX() == p1.getCurrentX())
+          && (p1.black.pieces.get(i).getY() == p1.getCurrentY())) {
         p1.processMove(p1.black.pieces.get(i), x, y, p1.black);
         valid = true;
         break;
@@ -135,10 +139,12 @@ public class Chess extends JPanel {
 
     int width = side;
     for (int i = 0; i < p1.white.pieces.size(); i++) {
-      Polygons.setPolygon(p1.white.pieces.get(i), width, p1.white.pieces.get(i).getType());
+      Polygons.setPolygon(p1.white.pieces.get(i), width,
+                          p1.white.pieces.get(i).getType());
     }
     for (int i = 0; i < p1.black.pieces.size(); i++) {
-      Polygons.setPolygon(p1.black.pieces.get(i), width, p1.black.pieces.get(i).getType());
+      Polygons.setPolygon(p1.black.pieces.get(i), width,
+                          p1.black.pieces.get(i).getType());
     }
 
     //Draw the pieces
