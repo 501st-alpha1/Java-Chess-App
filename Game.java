@@ -15,6 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Game
+ * Main state class (Model in MVC)
+ */
 import javax.swing.JPanel;
 
 class Game extends JPanel {
@@ -77,7 +81,7 @@ class Game extends JPanel {
         this.board[currentX - 1][currentY - 1] = null;
         this.currentX = 0;
         this.currentY = 0;
-        this.currentTeam = black;
+        switchTeam();
         this.upgradePawn(p);
       }
       else if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
@@ -87,7 +91,7 @@ class Game extends JPanel {
         this.board[currentX - 1][currentY - 1] = null;
         this.currentX = 0;
         this.currentY = 0;
-        this.currentTeam = black;
+        switchTeam();
       }
       else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
         this.board[x - 1][y - 1].setStatus(false);
@@ -97,7 +101,7 @@ class Game extends JPanel {
         this.board[currentX - 1][currentY - 1] = null;
         this.currentX = 0;
         this.currentY = 0;
-        this.currentTeam = black;
+        switchTeam();
       }
       else {
         this.currentX = 0;
@@ -112,7 +116,7 @@ class Game extends JPanel {
         this.board[currentX - 1][currentY - 1] = null;
         this.currentX = 0;
         this.currentY = 0;
-        this.currentTeam = white;
+        switchTeam();
       }
       else if (p.getAttackSquares(currentX, currentY, x, y, team, this.board)) {
         this.board[x - 1][y - 1].setStatus(false);
@@ -122,7 +126,7 @@ class Game extends JPanel {
         this.board[currentX - 1][currentY - 1] = null;
         this.currentX = 0;
         this.currentY = 0;
-        this.currentTeam = white;
+        switchTeam();
       }
       else {
         this.currentX = 0;
@@ -186,9 +190,14 @@ class Game extends JPanel {
       black.pawn8 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
     }
   }
-  
-  //this.board[x - 1][y - 1]
-  
+
+  public void switchTeam() {
+    if (this.currentTeam == this.white)
+      this.currentTeam = this.black;
+    else
+      this.currentTeam = this.white;
+  }
+
   public void setCurrentX(int x) {
     this.currentX = x;
   }
