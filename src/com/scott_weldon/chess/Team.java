@@ -16,7 +16,7 @@
  */
 
 //package com.scott_weldon.chess.gamestate;
-package chess;
+package com.scott_weldon.chess;
 
 import java.util.ArrayList;
 

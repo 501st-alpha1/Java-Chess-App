@@ -16,7 +16,7 @@
  */
 
 //package com.scott_weldon.chess.gamestate;
-package chess;
+package com.scott_weldon.chess;
 
 public class Queen extends Piece {
   public Queen() {

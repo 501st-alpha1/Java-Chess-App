@@ -20,7 +20,7 @@
  * Main state class (Model in MVC)
  */
 //package com.scott_weldon.chess.gamestate;
-package chess;
+package com.scott_weldon.chess;
 
 class Game {
   public Team white = new Team(Team.WHITE);

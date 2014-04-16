@@ -16,7 +16,7 @@
  */
 
 //package com.scott_weldon.chess.manual_view;
-package chess;
+package com.scott_weldon.chess;
 
 import java.awt.*;
 

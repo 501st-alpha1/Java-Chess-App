@@ -16,22 +16,22 @@
  */
 
 //package com.scott_weldon.chess.gamestate;
-package chess;
+package com.scott_weldon.chess;
 
-public class King extends Piece {
-  public King() {
+public class Knight extends Piece {  
+  public Knight() {
     super();
-    super.setType(Piece.KING);
+    super.setType(Piece.KNIGHT);
   }
   
-  public King(int x, int y, int w) {
-    super(x, y, w);
-    super.setType(Piece.KING);
+  public Knight(int x, int y, int width) {
+    super(x, y, width);
+    super.setType(Piece.KNIGHT);
   }
   
-  public King(int x, int y, int w, int team) {
+  public Knight(int x, int y, int w, int team) {
     super(x, y, w, team);
-    super.setType(Piece.KING);
+    super.setType(Piece.KNIGHT);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
@@ -39,8 +39,11 @@ public class King extends Piece {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
-    if (((dy == -1) || (dy == 0) || (dy == 1)) && ((dx == -1) || (dx == 0)
-        || (dx == 1)) && (board[newX - 1][newY - 1] == null)) {
+    if ((((dy == -2) && (dx == -1)) || ((dy == -2) && (dx == 1)) || ((dy == -1)
+        && (dx == 2)) || ((dy == 1) && (dx == 2)) || ((dy == 2) && (dx == 1))
+        || ((dy == 2) && (dx == -1)) || ((dy == 1) && (dx == -2))
+        || ((dy == -1) && (dx == -2)))
+        && (board[newX - 1][newY - 1] == null)) {
       return true;
     }
     else {
@@ -53,8 +56,11 @@ public class King extends Piece {
     int dx = newX - oldX;
     int dy = newY - oldY;
     
-    if (((dy == -1) || (dy == 0) || (dy == 1)) && ((dx == -1) || (dx == 0)
-        || (dx == 1)) && (board[newX - 1][newY - 1] != null)
+    if ((((dy == -2) && (dx == -1)) || ((dy == -2) && (dx == 1)) || ((dy == -1)
+        && (dx == 2)) || ((dy == 1) && (dx == 2)) || ((dy == 2) && (dx == 1))
+        || ((dy == 2) && (dx == -1)) || ((dy == 1) && (dx == -2))
+        || ((dy == -1) && (dx == -2))) &&
+        (board[newX - 1][newY - 1] != null)
         && (board[newX - 1][newY - 1].getTeam() != team.color)) {
       return true;
     }
