@@ -19,9 +19,7 @@
  * Game
  * Main state class (Model in MVC)
  */
-import javax.swing.JPanel;
-
-class Game extends JPanel {
+class Game {
   public Team white = new Team(Team.WHITE);
   public Team black = new Team(Team.BLACK);
   private int currentX = 0;
