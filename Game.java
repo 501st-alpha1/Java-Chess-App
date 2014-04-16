@@ -71,20 +71,10 @@ class Game extends JPanel {
   //Make sure the move is valid, and execute. This need improvement too.
   public void processMove(Piece p, int x, int y, Team team) {
     if ((team == white) && (currentTeam == white)) {
-      if ((p instanceof Pawn) &&
-          (p.getValidSquares(currentX, currentY, x, y, team, this.board))
-          && (y == 1)) {
-        //Upgrade a pawn?
-        p.setX(x);
-        p.setY(y);
-        this.board[x - 1][y - 1] = p;
-        this.board[currentX - 1][currentY - 1] = null;
-        this.currentX = 0;
-        this.currentY = 0;
-        switchTeam();
-        this.upgradePawn(p);
-      }
-      else if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
+      if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
+        if ((p instanceof Pawn) && (y == 1)) {
+          this.upgradePawn(p, team);
+        }
         p.setX(x);
         p.setY(y);
         this.board[x - 1][y - 1] = p;
@@ -110,6 +100,9 @@ class Game extends JPanel {
     }
     else if ((team == black) && (currentTeam == black)){
       if (p.getValidSquares(currentX, currentY, x, y, team, this.board)) {
+        if ((p instanceof Pawn) && (y == 8)) {
+          this.upgradePawn(p, team);
+        }
         p.setX(x);
         p.setY(y);
         this.board[x - 1][y - 1] = p;
@@ -140,54 +133,9 @@ class Game extends JPanel {
   }
 
   //Promote pawns to queens.
-  public void upgradePawn(Piece p) {
-    if (p == white.pawn1) {
-      white.pawn1 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn2) {
-      white.pawn2 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn3) {
-      white.pawn3 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn4) {
-      white.pawn4 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn5) {
-      white.pawn5 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn6) {
-      white.pawn6 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn7) {
-      white.pawn7 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == white.pawn8) {
-      white.pawn8 = new Queen(p.getX(), p.getY(), Piece.getWidth(), white.color);
-    }
-    else if (p == black.pawn1) {
-      black.pawn1 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn2) {
-      black.pawn2 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn3) {
-      black.pawn3 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn4) {
-      black.pawn4 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn5) {
-      black.pawn5 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn6) {
-      black.pawn6 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else if (p == black.pawn7) {
-      black.pawn7 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
-    }
-    else {
-      black.pawn8 = new Queen(p.getX(), p.getY(), Piece.getWidth(), black.color);
+  public void upgradePawn(Piece pawn, Team team) {
+    if (pawn instanceof Pawn) { //Just in case ;)
+      pawn = new Queen(pawn.getX(), pawn.getY(), Piece.getWidth(), team.color);
     }
   }
 
