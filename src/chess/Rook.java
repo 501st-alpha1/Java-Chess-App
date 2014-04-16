@@ -15,61 +15,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Queen extends Piece {
-  public Queen() {
+//package com.scott_weldon.chess.gamestate;
+package chess;
+
+public class Rook extends Piece {
+  public Rook() {
     super();
+    super.setType(Piece.ROOK);
   }
   
-  public Queen(int x, int y, int w) {
-    super(x, y, w);
-    super.setType(Piece.QUEEN);
+  public Rook(int x, int y, int width) {
+    super(x, y, width);
+    super.setType(Piece.ROOK);
   }
   
-  public Queen(int x, int y, int w, int team) {
+  public Rook(int x, int y, int w, int team) {
     super(x, y, w, team);
-    super.setType(Piece.QUEEN);
+    super.setType(Piece.ROOK);
   }
   
   public boolean getValidSquares(int oldX, int oldY, int newX, int newY,
       Team team, Piece[][] board) {
     int dx = newX - oldX;
-    int dy = newY - oldY;
- 
-    if ((dx == dy) || (dx == -dy)) {
-      if ((dx > 0) && (dy > 0)) {
-        for (int i = 1; i <= dx; i++) {
-          if (board[oldX + i - 1][oldY + i - 1] != null) {
-            return false;
-          }
-        }
-        return true;
-      }
-      else if ((dx > 0) && (dy < 0)) {
-        for (int i = 1; i <= dx; i++) {
-          if (board[oldX + i - 1][oldY - i - 1] != null) {
-            return false;
-          }
-        }
-        return true;
-      }
-      else if ((dx < 0) && (dy > 0)) {
-        for (int i = -1; i >= dx; i--) {
-          if (board[oldX + i - 1][oldY - i - 1] != null) {
-            return false;
-          }
-        }
-        return true;
-      }
-      else {
-        for (int i = -1; i >= dx; i--) {
-          if (board[oldX + i - 1][oldY + i - 1] != null) {
-            return false;
-          }
-        }
-        return true;
-      }
-    }
-    else if (dx == 0) {
+    int dy = newY - oldY;    
+
+    if (dx == 0) {
       if (dy > 0) {
         for (int i = 1; i <= dy; i++) {
           if (board[oldX - 1][oldY + i - 1] != null) {
@@ -105,6 +75,7 @@ public class Queen extends Piece {
         return true;
       }
     }
+    
     else {
       return false;
     }
@@ -114,6 +85,7 @@ public class Queen extends Piece {
       Team team, Piece[][] board) {
     int dx = newX - oldX;
     int dy = newY - oldY;
+    
     int a;
     int b;
     

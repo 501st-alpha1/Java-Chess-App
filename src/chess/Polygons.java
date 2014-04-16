@@ -15,6 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//package com.scott_weldon.chess.manual_view;
+package chess;
+
 import java.awt.*;
 
 public class Polygons {

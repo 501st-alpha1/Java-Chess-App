@@ -15,6 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//package com.scott_weldon.chess.gamestate;
+package chess;
+
 import java.util.ArrayList;
 
 public class Team {

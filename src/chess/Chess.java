@@ -15,6 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//package com.scott_weldon.chess.main;
+package chess;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -64,7 +67,7 @@ public class Chess extends JPanel {
     
     //this.setLayout(new BorderLayout());
     //this.add(p1, BorderLayout.CENTER);
-    this.add(p1);
+    //this.add(p1);
     this.addMouseListener(new MoveListener());
   }
   
