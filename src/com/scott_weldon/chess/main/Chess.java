@@ -16,7 +16,6 @@
  */
 
 package com.scott_weldon.chess.main;
-//package com.scott_weldon.chess;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -31,7 +30,7 @@ import com.scott_weldon.chess.gamestate.Piece;
 import com.scott_weldon.chess.manual_view.Polygons;
 
 public class Chess extends JPanel {
-  Game p1;
+  Game game;
   //OptionPanel p2;
   private int side;
   
@@ -65,12 +64,9 @@ public class Chess extends JPanel {
 
   //Create new checkerboard panel; add it and listener to frame.
   public Chess() {
-    p1 = new Game();
+    game = new Game();
     //p2 = new OptionPanel();
     
-    //this.setLayout(new BorderLayout());
-    //this.add(p1, BorderLayout.CENTER);
-    //this.add(p1);
     this.addMouseListener(new MoveListener());
   }
   
@@ -81,36 +77,36 @@ public class Chess extends JPanel {
     boolean valid = false;
     
     if ((x > 8) || (y > 8)) {
-      p1.setCurrentX(0);
-      p1.setCurrentY(0);
+      game.setCurrentX(0);
+      game.setCurrentY(0);
       valid = true;
     }
-    if ((x == p1.getCurrentX()) && (y == p1.getCurrentY())) {
-      p1.setCurrentX(0);
-      p1.setCurrentY(0);
+    if ((x == game.getCurrentX()) && (y == game.getCurrentY())) {
+      game.setCurrentX(0);
+      game.setCurrentY(0);
       valid = true;
     }
     
-    for (int i = 0; i < p1.white.pieces.size(); i++) {
-      if ((p1.white.pieces.get(i).getX() == p1.getCurrentX())
-          && (p1.white.pieces.get(i).getY() == p1.getCurrentY())) {
-        p1.processMove(p1.white.pieces.get(i), x, y, p1.white);
+    for (int i = 0; i < game.white.pieces.size(); i++) {
+      if ((game.white.pieces.get(i).getX() == game.getCurrentX())
+          && (game.white.pieces.get(i).getY() == game.getCurrentY())) {
+        game.processMove(game.white.pieces.get(i), x, y, game.white);
         valid = true;
         break;
       }
     }
-    for (int i = 0; i < p1.black.pieces.size(); i++) {
-      if ((p1.black.pieces.get(i).getX() == p1.getCurrentX())
-          && (p1.black.pieces.get(i).getY() == p1.getCurrentY())) {
-        p1.processMove(p1.black.pieces.get(i), x, y, p1.black);
+    for (int i = 0; i < game.black.pieces.size(); i++) {
+      if ((game.black.pieces.get(i).getX() == game.getCurrentX())
+          && (game.black.pieces.get(i).getY() == game.getCurrentY())) {
+        game.processMove(game.black.pieces.get(i), x, y, game.black);
         valid = true;
         break;
       }
     }
     
     if (!valid) {
-      p1.setCurrentX(x);
-      p1.setCurrentY(y);
+      game.setCurrentX(x);
+      game.setCurrentY(y);
     }
     
     repaint();
@@ -151,9 +147,9 @@ public class Chess extends JPanel {
       }
     }
     
-    if ((p1.getCurrentX() != 0) && (p1.getCurrentY() != 0)) {
+    if ((game.getCurrentX() != 0) && (game.getCurrentY() != 0)) {
       g.setColor(Color.RED);
-      g.fillRect((p1.getCurrentX() - 1) * side, (p1.getCurrentY() - 1) * side,
+      g.fillRect((game.getCurrentX() - 1) * side, (game.getCurrentY() - 1) * side,
           side, side);
     }
     
@@ -161,41 +157,41 @@ public class Chess extends JPanel {
     Piece.setWidth(side);
 
     int width = side;
-    for (int i = 0; i < p1.white.pieces.size(); i++) {
-      Polygons.setPolygon(p1.white.pieces.get(i), width,
-                          p1.white.pieces.get(i).getType());
+    for (int i = 0; i < game.white.pieces.size(); i++) {
+      Polygons.setPolygon(game.white.pieces.get(i), width,
+                          game.white.pieces.get(i).getType());
     }
-    for (int i = 0; i < p1.black.pieces.size(); i++) {
-      Polygons.setPolygon(p1.black.pieces.get(i), width,
-                          p1.black.pieces.get(i).getType());
+    for (int i = 0; i < game.black.pieces.size(); i++) {
+      Polygons.setPolygon(game.black.pieces.get(i), width,
+                          game.black.pieces.get(i).getType());
     }
 
     //Draw the pieces
     g.setColor(Color.BLACK);
-    if (p1.white.king.getStatus()) {
-      g.fillPolygon(p1.white.king.piece);
+    if (game.white.king.getStatus()) {
+      g.fillPolygon(game.white.king.piece);
     }
     else {
       System.out.println("Black is the winner!");
       System.exit(0);
     }
-    for (int i = 1; i < p1.white.pieces.size(); i++) {
-      if (p1.white.pieces.get(i).getStatus()) {
-        g.fillPolygon(p1.white.pieces.get(i).piece);
+    for (int i = 1; i < game.white.pieces.size(); i++) {
+      if (game.white.pieces.get(i).getStatus()) {
+        g.fillPolygon(game.white.pieces.get(i).piece);
       }
     }
     
     g.setColor(new Color(255, 0, 255));
-    if (p1.black.king.getStatus()) {
-      g.fillPolygon(p1.black.king.piece);
+    if (game.black.king.getStatus()) {
+      g.fillPolygon(game.black.king.piece);
     }
     else {
       System.out.println("White is the winner!");
       System.exit(0);
     }
-    for (int i = 1; i < p1.black.pieces.size(); i++) {
-      if (p1.black.pieces.get(i).getStatus()) {
-        g.fillPolygon(p1.black.pieces.get(i).piece);
+    for (int i = 1; i < game.black.pieces.size(); i++) {
+      if (game.black.pieces.get(i).getStatus()) {
+        g.fillPolygon(game.black.pieces.get(i).piece);
       }
     }
   }
