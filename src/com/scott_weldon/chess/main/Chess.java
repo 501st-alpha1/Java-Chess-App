@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//package com.scott_weldon.chess.main;
-package com.scott_weldon.chess;
+package com.scott_weldon.chess.main;
+//package com.scott_weldon.chess;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,6 +26,9 @@ import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
+import com.scott_weldon.chess.gamestate.Game;
+import com.scott_weldon.chess.gamestate.Piece;
+import com.scott_weldon.chess.manual_view.Polygons;
 
 public class Chess extends JPanel {
   Game p1;

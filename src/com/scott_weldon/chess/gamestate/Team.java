@@ -15,8 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//package com.scott_weldon.chess.gamestate;
-package com.scott_weldon.chess;
+package com.scott_weldon.chess.gamestate;
 
 import java.util.ArrayList;
 

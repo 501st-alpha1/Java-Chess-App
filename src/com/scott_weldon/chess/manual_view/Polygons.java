@@ -15,10 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//package com.scott_weldon.chess.manual_view;
-package com.scott_weldon.chess;
+package com.scott_weldon.chess.manual_view;
 
 import java.awt.*;
+import com.scott_weldon.chess.gamestate.Piece;
 
 public class Polygons {
   public static Polygon setPolygon(int w, int x, int y, int type) {

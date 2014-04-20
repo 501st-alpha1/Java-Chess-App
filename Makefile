@@ -10,5 +10,17 @@ BIN_MAIN=$(BIN_ROOT)/main
 
 OBJECTS=Bishop.class Chess.class Chess$$MoveListener.class Game.class King.class Knight.class Pawn.class Piece.class Polygons.class Queen.class Rook.class Team.class
 
-all:
-	javac -d bin -sourcepath $(SRC_ROOT) $(SRC_ROOT)/*.java
+all: state manual_view main
+
+state:
+	javac -d bin -classpath bin -sourcepath $(SRC_GAMESTATE) \
+		$(SRC_GAMESTATE)/*.java
+
+manual_view:
+	javac -d bin -classpath bin -sourcepath $(SRC_MANUAL_VIEW) \
+		$(SRC_MANUAL_VIEW)/*.java
+
+main:
+	javac -d bin -classpath bin -sourcepath $(SRC_MAIN) \
+		$(SRC_MAIN)/*.java
+

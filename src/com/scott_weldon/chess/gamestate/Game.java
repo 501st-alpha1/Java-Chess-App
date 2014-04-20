@@ -19,10 +19,9 @@
  * Game
  * Main state class (Model in MVC)
  */
-//package com.scott_weldon.chess.gamestate;
-package com.scott_weldon.chess;
+package com.scott_weldon.chess.gamestate;
 
-class Game {
+public class Game {
   public Team white = new Team(Team.WHITE);
   public Team black = new Team(Team.BLACK);
   private int currentX = 0;
