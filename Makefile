@@ -24,3 +24,6 @@ main:
 	javac -d bin -classpath bin -sourcepath $(SRC_MAIN) \
 		$(SRC_MAIN)/*.java
 
+clean:
+	rm -v $(BIN_GAMESTATE)/*.class $(BIN_MANUAL_VIEW)/*.class \
+		$(BIN_MAIN)/*.class
