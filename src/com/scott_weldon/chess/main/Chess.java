@@ -31,7 +31,7 @@ import com.scott_weldon.chess.manual_view.Polygons;
 import com.scott_weldon.chess.manual_view.Chessboard;
 
 public class Chess extends JFrame {
-  //Set up frame or applet. TODO: Applet doesn't work with object tag.
+  //Set up frame.
   public static void main(String[] args) {
     Game game = new Game(); // Model
     Chessboard board = new Chessboard(game); // View
@@ -48,22 +48,6 @@ public class Chess extends JFrame {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Chess");
   }
-  
-  //TODO: For object tag, work in progress
-//  public void init() {
-//    try {
-//      SwingUtilities.invokeAndWait(new Runnable() {
-//        public void run() {
-//          p1 = new Checkerboard();
-//          add(p1);
-//          p1.addMouseListener(new MoveListener());
-//        }this.side
-//      });
-//    }
-//    catch (Exception e) {
-//      System.err.println("Fail!");
-//    }
-//  }
   
   class MoveListener implements MouseListener{
     private Chessboard board;
@@ -95,11 +79,4 @@ public class Chess extends JFrame {
       // Do nothing
     }
   }
-  
-//  class OptionPanel extends JPanel {
-//    public OptionPanel() {
-//      JRadioButton black = new JRadioButton("Black");
-//      this.add(black);
-//    }
-//  }
 }
